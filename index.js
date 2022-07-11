@@ -1,5 +1,7 @@
-let computer = 0
 let player = 0
+let computer = 0
+const buttons = document.querySelectorAll('button')
+
 
 function computerPlay() {
 let x = Math.floor(Math.random() * 100);
@@ -12,14 +14,18 @@ let x = Math.floor(Math.random() * 100);
  }
 }
 
-const buttons = document.querySelectorAll('button');
-
-buttons.forEach((button) => {
+//gets both computer and players selection
+buttons.forEach(button => {
     button.addEventListener('click', () => {
-      let playerResult = 0
-      playerResult =  button.className;
-       let computerResult = computerPlay()
-      if ( computerResult === playerResult) {
+        y = computerPlay()
+        x = button.className
+        compare(y, x)
+        update(player, computer, x, y)
+    })
+});
+
+function compare(computerResult, playerResult) {
+    if ( computerResult === playerResult) {
         console.log("Tie")
     } else if ( computerResult == "rock" && playerResult == "scissors") {
         console.log("Computer Win")
@@ -34,18 +40,19 @@ buttons.forEach((button) => {
         console.log("player win")
         ++player
     }
-    update();
-    });
-  });
+}
 
-function update(){
-    const playerScore = document.querySelector('.playerscore')
-  playerScore.textContent = `Player Score: ${player}`
+function update(playerScore, computerScore, selectionPlayer, selectionComputer) {
+    const displayPlayerScore = document.querySelector('.playerscore')
+    displayPlayerScore.textContent = `Player Score ${playerScore}`
 
-  const computerScore = document.querySelector('.computerscore')
-  computerScore.textContent = `Computer Score: ${computer}`
-};
-  
+    const displayComputerScore = document.querySelector('.computerscore')
+    displayComputerScore.textContent = `Computer Score ${computerScore}`
 
-  
-  
+    const playerChose = document.querySelector('.player')
+    playerChose.textContent = `Player chose ${selectionPlayer}`
+
+    const computerChose = document.querySelector('.computer')
+    computerChose.textContent = `Computer Chose ${selectionComputer}`
+}
+
