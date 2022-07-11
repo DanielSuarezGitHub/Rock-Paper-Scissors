@@ -12,47 +12,40 @@ let x = Math.floor(Math.random() * 100);
  }
 }
 
-function playerSelection() {
-    let y = prompt("Rock Paper Scissors").trim().toLowerCase();
-    return y
-}
+const buttons = document.querySelectorAll('button');
 
-// 2 = player win 1 = computer win
-function game() {
-    let computerResult = computerPlay();
-    let playerResult = playerSelection();
-    console.log(computerResult, playerResult);
-    if ( computerResult === playerResult) {
-        return 0
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      let playerResult = 0
+      playerResult =  button.className;
+       let computerResult = computerPlay()
+      if ( computerResult === playerResult) {
+        console.log("Tie")
     } else if ( computerResult == "rock" && playerResult == "scissors") {
-        return 1
+        console.log("Computer Win")
+        ++computer
     } else if ( computerResult == "scissors" && playerResult == "paper") {
-        return 1
+        console.log("Computer Win")
+        ++computer
     } else if ( computerResult == "paper" && playerResult == "rock") {
-        return 1
+        console.log("Computer Win")
+        ++computer
     } else {
-        return 2
+        console.log("player win")
+        ++player
     }
-}
+    update();
+    });
+  });
 
-function playGame(){
-for (let i = 0; i < 5; i++) {
-    let gameCounter = game();
-    if (gameCounter === 2){
-        player = ++player
-    } else if (gameCounter === 1) {
-        computer = ++computer
-    }
-    gameCounter = 0;
- }
-}
+function update(){
+    const playerScore = document.querySelector('.playerscore')
+  playerScore.textContent = `Player Score: ${player}`
 
-playGame()
+  const computerScore = document.querySelector('.computerscore')
+  computerScore.textContent = `Computer Score: ${computer}`
+};
+  
 
-if (player > computer) {
-    console.log("Player Wins")
-} else if (computer > player) {
-    console.log("Computer Wins")
-} else {
-    console.log("Tie")
-}
+  
+  

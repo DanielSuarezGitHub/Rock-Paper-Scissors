@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: none;
+    font-family: 'Roboto', sans-serif;
+    background-color: royalblue;
+}
+
+.container {
+    background-color: royalblue;
+    display: flex;
+    flex-direction: column;
+    margin-top: -100px;
+
+}
+
+.computerselection {
+    display: none;
+}
+
+h1 {
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.playerselection {
+    display: flex;
+    gap: 40px;
+}
+
+img {
+    height: 150px;
+    width: auto;
+}
+
+h2 {
+    margin: 0 auto;
+}
+
+.score {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.result {
+    display: flex;
+    justify-content:  space-evenly;
+    margin-top: 35px;
+    margin-bottom: 25px;
+}
+
+.winner {
+    margin: 0 auto;
+}
+
