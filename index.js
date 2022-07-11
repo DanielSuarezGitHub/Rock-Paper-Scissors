@@ -54,5 +54,13 @@ function update(playerScore, computerScore, selectionPlayer, selectionComputer) 
 
     const computerChose = document.querySelector('.computer')
     computerChose.textContent = `Computer Chose ${selectionComputer}`
+    checkwin(playerScore, computerScore);
 }
 
+function checkwin(playerScore, computerScore) {
+    if(playerScore == 5 || computerScore == 5) {
+        playerScore > computerScore ? alert("Player Wins Score Has Reset") : alert("Computer Wins Score Has Reset")
+        player = 0
+        computer = 0
+    } else {}
+}
